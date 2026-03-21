@@ -1,22 +1,22 @@
-// sw.js - Service Worker para Salon bella
+// sw.js - Service Worker para Nails-Jens
 
-const CACHE_NAME = 'salon-bella-v1';
+const CACHE_NAME = 'nails-jens-v1';
 const urlsToCache = [
-  '/bellasalon/',
-  '/bellasalon/index.html',
-  '/bellasalon/admin.html',
-  '/bellasalon/admin-login.html',
-  '/bellasalon/setup-wizard.html',
-  '/bellasalon/editar-negocio.html',
-  '/bellasalon/manifest.json',
-  '/bellasalon/icons/icon-72x72.png',
-  '/bellasalon/icons/icon-96x96.png',
-  '/bellasalon/icons/icon-128x128.png',
-  '/bellasalon/icons/icon-144x144.png',
-  '/bellasalon/icons/icon-152x152.png',
-  '/bellasalon/icons/icon-192x192.png',
-  '/bellasalon/icons/icon-384x384.png',
-  '/bellasalon/icons/icon-512x512.png'
+  '/nailsjens/',
+  '/nailsjens/index.html',
+  '/nailsjens/admin.html',
+  '/nailsjens/admin-login.html',
+  '/nailsjens/setup-wizard.html',
+  '/nailsjens/editar-negocio.html',
+  '/nailsjens/manifest.json',
+  '/nailsjens/icons/icon-72x72.png',
+  '/nailsjens/icons/icon-96x96.png',
+  '/nailsjens/icons/icon-128x128.png',
+  '/nailsjens/icons/icon-144x144.png',
+  '/nailsjens/icons/icon-152x152.png',
+  '/nailsjens/icons/icon-192x192.png',
+  '/nailsjens/icons/icon-384x384.png',
+  '/nailsjens/icons/icon-512x512.png'
 ];
 
 // ============================================
@@ -108,7 +108,7 @@ self.addEventListener('fetch', event => {
           }
           // Si no hay cache y es imagen, devolver icon por defecto
           if (event.request.url.match(/\.(jpg|jpeg|png|gif|svg|webp)$/)) {
-            return caches.match('/bellasalon/icons/icon-192x192.png');
+            return caches.match('/nailsjens/icons/icon-192x192.png');
           }
           return new Response('Error de red', { status: 408 });
         });
@@ -138,6 +138,6 @@ self.addEventListener('message', event => {
   }
 });
 
-console.log('✅ Service Worker configurado para Salon bella');
+console.log('✅ Service Worker configurado para Nails-Jens');
 console.log('📦 Cache:', CACHE_NAME);
 console.log('📄 Archivos a cachear:', urlsToCache.length);
